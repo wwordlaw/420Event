@@ -1,14 +1,6 @@
 import SwiftUI
 import MapKit
 
-struct DispensaryMapApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
-}
-
 struct Dispensary: Identifiable {
     let id = UUID()
     let name: String
@@ -142,7 +134,6 @@ class DispensaryViewModel: ObservableObject {
             } else {
                 print("Geocoding error for \(dispensary.name): \(error?.localizedDescription ?? "Unknown error")")
             }
-            // Process next address after a slight delay to avoid overwhelming the geocoder
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.geocodeNext(index: index + 1)
             }
@@ -342,28 +333,3 @@ struct DispensaryListView: View {
         }
     }
 }
-
-struct ContentView: View {
-    @StateObject private var viewModel = DispensaryViewModel()
-    
-    var body: some View {
-        TabView {
-            MapView(viewModel: viewModel)
-                .tabItem {
-                    Label("Map", systemImage: "map.fill")
-                }
-            DispensaryListView(viewModel: viewModel)
-                .tabItem {
-                    Label("List", systemImage: "list.bullet")
-                }
-        }
-        .accentColor(.green)
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-
