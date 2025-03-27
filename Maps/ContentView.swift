@@ -1,24 +1,25 @@
-//
-//  ContentView.swift
-//  Maps
-//
-//  Created by dj on 3/26/25.
-//
+import SwiftUI
 
-//import SwiftUI
-//
-//struct ContentView: View {
-//    var body: some View {
-//        VStack {
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//            Text("Hello, world!")
-//        }
-//        .padding()
-//    }
-//}
-//
-//#Preview {
-//    ContentView()
-//}
+struct ContentView: View {
+    @StateObject private var viewModel = DispensaryViewModel()
+    
+    var body: some View {
+        TabView {
+            MapView(viewModel: viewModel)
+                .tabItem {
+                    Label("Map", systemImage: "map.fill")
+                }
+            DispensaryListView(viewModel: viewModel)
+                .tabItem {
+                    Label("List", systemImage: "list.bullet")
+                }
+        }
+        .accentColor(.green)
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
