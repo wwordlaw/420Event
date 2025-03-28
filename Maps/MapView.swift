@@ -161,7 +161,7 @@ struct MapView: View {
                     VStack {
                         ZStack {
                             Circle()
-                                .fill(Color.green)
+                                .fill(Color.sage)
                                 .frame(width: 44, height: 44)
                                 .shadow(radius: 3)
                             Image(systemName: "leaf.fill")
@@ -181,7 +181,7 @@ struct MapView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .accentColor(.green)
+        .accentColor(.sage)
         .sheet(isPresented: $showDetailSheet) {
             if let dispensary = selectedDispensary {
                 DispensaryDetailView(dispensary: dispensary, viewModel: viewModel)
@@ -190,7 +190,7 @@ struct MapView: View {
         .overlay(
             HStack {
                 Image(systemName: "leaf.fill")
-                    .foregroundColor(.green)
+                    .foregroundColor(.sage)
                 Text("Detroit Dispensaries")
                     .font(.headline)
                     .fontWeight(.bold)
@@ -216,20 +216,20 @@ struct DispensaryDetailView: View {
                 Section(header: Text("INFORMATION")) {
                     HStack {
                         Image(systemName: "building.2.fill")
-                            .foregroundColor(.green)
+                            .foregroundColor(.sage)
                             .frame(width: 30)
                         Text(dispensary.name)
                             .font(.headline)
                     }
                     HStack {
                         Image(systemName: "location.fill")
-                            .foregroundColor(.green)
+                            .foregroundColor(.sage)
                             .frame(width: 30)
                         Text(dispensary.address)
                     }
                     HStack {
                         Image(systemName: "phone.fill")
-                            .foregroundColor(.green)
+                            .foregroundColor(.sage)
                             .frame(width: 30)
                         Text(dispensary.phone)
                             .onTapGesture {
@@ -245,10 +245,10 @@ struct DispensaryDetailView: View {
                     }
                     HStack {
                         Image(systemName: "globe")
-                            .foregroundColor(.green)
+                            .foregroundColor(.sage)
                             .frame(width: 30)
                         Text("Visit Website")
-                            .foregroundColor(.blue)
+                            .foregroundColor(.azul)
                             .onTapGesture {
                                 if let url = URL(string: dispensary.url), UIApplication.shared.canOpenURL(url) {
                                     UIApplication.shared.open(url)
@@ -283,7 +283,7 @@ struct DispensaryDetailView: View {
                     }
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color.green)
+                    .background(Color.sage)
                     .cornerRadius(10)
                 }
                 .listRowInsets(EdgeInsets())
@@ -319,7 +319,7 @@ struct DispensaryListView: View {
                     }
                     Spacer()
                     Image(systemName: "chevron.right")
-                        .foregroundColor(.green)
+                        .foregroundColor(.sage)
                 }
                 .padding(.vertical, 5)
             }

@@ -11,7 +11,15 @@ struct ContentView: View {
                 }
             DispensaryListView(viewModel: viewModel)
                 .tabItem {
-                    Label("List", systemImage: "list.bullet")
+                    Label("Dispensaries", systemImage: "list.bullet.rectangle.portrait.fill")
+                }
+            HomePage()
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+            HowToPlay()
+                .tabItem {
+                    Label("How to Play", systemImage: "questionmark.circle")
                 }
         }
         .accentColor(.green)
