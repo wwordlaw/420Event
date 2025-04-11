@@ -182,12 +182,9 @@ struct HomePage: View {
 
                     // --- Add GradientButton back ---
                     GradientButton(title: "How to Play?") {
-                        // Execute the closure passed from ContentView
                         print("HomePage button tapped, calling switchToHelpTab closure.")
                         switchToHelpTab()
                     }
-
-
                 }
             }
         }
